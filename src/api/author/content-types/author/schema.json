@@ -13,22 +13,34 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "unique": false
     },
     "avatar": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
-    },
-    "email": {
-      "type": "string"
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "articles": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::article.article",
-      "mappedBy": "author"
+      "mappedBy": "authors"
+    },
+    "social_link": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 50
     }
   }
 }
